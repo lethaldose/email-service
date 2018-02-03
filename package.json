@@ -8,6 +8,7 @@
     "precommit": "lint-staged",
     "lint": "./node_modules/.bin/eslint --max-warnings=0 src",
     "start": "node --use_strict src/start.js",
+    "start-dev": "nodemon --use_strict src/start.js",
     "test": "node_modules/.bin/mocha test --exit"
   },
   "lint-staged": {
