@@ -1,0 +1,14 @@
+- set preferred provider
+- json schema validation
+- failover provider
+- need to log failures
+- store metrics in database
+- log metrics - num of emails sent by provider, num of failures
+- can store email content as json blob
+- root / url expose routes
+- /health-check
+- /metrics route for debugging
+- swagger
+- uncaughtException / 500 errors
+- multiple environments
+
