@@ -1,5 +1,3 @@
-const email = () => {
-
-};
+const email = () => {};
 
 module.exports = email;

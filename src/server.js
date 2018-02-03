@@ -12,7 +12,7 @@ const start = () => {
 
   app.use(bodyParser.json({ limit: '200kb' }));
   app.get('/', (req, res) => {
-    res.send({"EmailService": "Hello"});
+    res.send({ EmailService: 'Hello' });
   });
 
   app.get('/health-check', (req, res) => {
@@ -29,4 +29,4 @@ const start = () => {
 
 module.exports = {
   start
-}
+};
