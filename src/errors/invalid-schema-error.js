@@ -1,5 +1,3 @@
-'use strict';
-
 const HTTPErrors = require('http-custom-errors');
 const util = require('util');
 

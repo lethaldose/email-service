@@ -18,7 +18,7 @@ describe('/email', () => {
       const errorResponse = [
         {
           path: 'to',
-          message: 'should be a valid email address'
+          message: 'should be an array'
         },
         {
           path: 'subject',

@@ -1,5 +1,3 @@
-'use strict';
-
 const s = require('strummer');
 const InvalidSchemaError = require('../errors/invalid-schema-error');
 
