@@ -6,7 +6,7 @@
   "scripts": {
     "prettier": "prettier --single-quote --write '**/*.js'",
     "precommit": "lint-staged",
-    "lint": "./node_modules/.bin/eslint --max-warnings=0 src",
+    "lint": "./node_modules/.bin/eslint --max-warnings=0 .",
     "start": "node --use_strict src/start.js",
     "start-dev": "nodemon --use_strict src/start.js",
     "test": "node_modules/.bin/mocha test --exit"
@@ -31,15 +31,15 @@
     "strummer": "^2.4.4"
   },
   "devDependencies": {
-    "eslint": "^4.12.1",
+    "eslint": "^4.17.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.1.0",
-    "mocha": "4.0.0",
+    "mocha": "^5.0.0",
     "prettier": "^1.10.2",
-    "should": "^13.1.3",
+    "should": "^13.2.1",
     "should-http": "^0.1.1",
     "should-sinon": "0.0.6",
-    "sinon": "^4.1.2",
+    "sinon": "^4.2.2",
     "sinon-stub-promise": "^4.0.0",
     "supertest": "^3.0.0"
   }

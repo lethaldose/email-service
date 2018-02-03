@@ -21,10 +21,9 @@ const start = () => {
 
   app.use('/', routes);
   app.use(errorHandler);
-  app.listen(config.port, () => {
+  return app.listen(config.port, () => {
     log.info(`Email Service Started:: listening at ${config.port}`);
   });
-  return app;
 };
 
 module.exports = {

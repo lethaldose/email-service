@@ -4,8 +4,8 @@ const EMAIL_REQUEST = s({
   to: 'email',
   bcc: s.optional(['email']),
   cc: s.optional(['email']),
-  subject: 'string',
-  body: 'string'
+  subject: s.string({ min: 1 }),
+  body: s.string({ min: 1 })
 });
 
 module.exports = {
