@@ -23,7 +23,7 @@ A simple HTTP REST api:
 ├── src - service source files
 |      ├── schemas - schema validators
 |      ├── email - email routes and external provider services
-├── test - (using mocha/shouldjs)
+├── test - (using mocha/shouldjs/nock)
        ├── integration
        ├── unit
 ```

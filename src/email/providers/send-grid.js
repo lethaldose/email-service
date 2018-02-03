@@ -9,7 +9,7 @@ const createRequest = emailPayload => {
     method: 'POST',
     uri: emailConfig.apiPath,
     headers: {
-      authorization: emailConfig.apiKey,
+      authorization: `Bearer ${emailConfig.apiKey}`,
       'content-type': 'application/json'
     },
     json: true,
@@ -21,8 +21,14 @@ const createRequest = emailPayload => {
 
 const createEmailPayload = ({ to, bcc, cc, subject, body }) => {
   const toEmails = _.map(to, emailAdd => ({ email: emailAdd }));
-  const ccEmails = _.map(cc, emailAdd => ({ email: emailAdd }));
-  const bccEmails = _.map(bcc, emailAdd => ({ email: emailAdd }));
+  let ccEmails = _.map(cc, emailAdd => ({ email: emailAdd }));
+  let bccEmails = _.map(bcc, emailAdd => ({ email: emailAdd }));
+  if (_.isEmpty(ccEmails)) {
+    ccEmails = null;
+  }
+  if (_.isEmpty(bccEmails)) {
+    bccEmails = null;
+  }
 
   const payload = {
     personalizations: [
@@ -55,7 +61,6 @@ const sendEmail = async emailOptions => {
     return response;
   } catch (err) {
     log.error('SendGrid: Error sending SendGrid Email', emailOptions);
-    log.error(err);
     throw err; // can wrap in custom Email error
   }
 };
