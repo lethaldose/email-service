@@ -11,7 +11,7 @@ describe('SendGrid Provider', () => {
     body: 'test email content'
   };
 
-  const emailRequest = {
+  const sgEmailParams = {
     personalizations: [
       {
         to: [{ email: 'foo@example.com' }],
@@ -27,7 +27,7 @@ describe('SendGrid Provider', () => {
   it('should send an email with correct request options', async () => {
     nock(config.hostname)
       .post('/v3/mail/send', req => {
-        req.should.eql(emailRequest);
+        req.should.eql(sgEmailParams);
         return true;
       })
       .reply(202, { success: 'true' });
