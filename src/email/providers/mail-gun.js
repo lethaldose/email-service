@@ -20,7 +20,7 @@ const createRequest = emailPayload => {
   return options;
 };
 
-createEmailPayload = ({ to, bcc, cc, subject, body }) => {
+const createEmailPayload = ({ to, bcc, cc, subject, body }) => {
   const toEmails = _.join(to, ',');
   let ccEmails = _.join(cc, ',');
   let bccEmails = _.join(bcc, ',');

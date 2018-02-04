@@ -39,3 +39,16 @@ A simple HTTP REST api:
 ## Config
 
 1. App config is at `src/config.js`
+
+## Sample Request
+
+```
+curl -X POST \
+  http://localhost:3000/email \
+  -d '{
+  "to": ["john.doe@gmail.com"],
+  "cc": ["john.doe@yahoo.com"],
+  "subject": "test-email",
+  "body": "test email content"
+}'
+```
