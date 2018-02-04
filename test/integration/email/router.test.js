@@ -1,6 +1,6 @@
 const nock = require('nock');
 const request = require('supertest');
-const config = require(`${global.SRC}/config`).sendGrid;
+const config = require(`${global.SRC}/config`).get().mailGun;
 const server = require(`${global.SRC}/server`);
 
 describe('/email', () => {
@@ -46,7 +46,7 @@ describe('/email', () => {
   describe('send email ', () => {
     beforeEach(() => {
       nock(config.hostname)
-        .post('/v3/mail/send')
+        .post('/messages')
         .reply(202, { success: 'true' });
     });
 

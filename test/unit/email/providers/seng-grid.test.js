@@ -1,5 +1,5 @@
 const nock = require('nock');
-const config = require(`${global.SRC}/config`).sendGrid;
+const config = require(`${global.SRC}/config`).get().sendGrid;
 const sendGridProvider = require(`${global.SRC}/email/providers/send-grid`);
 
 describe('SendGrid Provider', () => {

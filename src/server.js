@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const config = require('./config');
+const config = require('./config').get();
 const errorHandler = require('./middleware/error-handler');
 const log = require('./log');
 const routes = require('./routes');

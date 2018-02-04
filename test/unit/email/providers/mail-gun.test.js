@@ -1,5 +1,5 @@
 const nock = require('nock');
-const config = require(`${global.SRC}/config`).mailGun;
+const config = require(`${global.SRC}/config`).get().mailGun;
 const mailGunProvider = require(`${global.SRC}/email/providers/mail-gun`);
 
 describe('MailGun Provider', () => {

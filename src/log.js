@@ -1,5 +1,5 @@
 const bunyan = require('bunyan');
-const config = require('./config');
+const config = require('./config').get();
 
 const log = bunyan.createLogger({
   name: config.name,

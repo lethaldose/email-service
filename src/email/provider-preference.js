@@ -2,7 +2,7 @@ const _ = require('lodash');
 const sendGridProvider = require('./providers/send-grid');
 const mailGunProvider = require('./providers/mail-gun');
 const log = require('../log');
-const config = require('../config');
+const config = require('../config').get();
 
 const defaultPreference = ['mail-gun', 'send-grid'];
 const providerMap = {
@@ -51,6 +51,8 @@ const lower = providerName => {
 
   log.info(`Updated provider preference to ${providerPreference}`);
 };
+
+updatePreferenceMap();
 
 module.exports = {
   set,

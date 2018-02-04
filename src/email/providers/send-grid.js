@@ -1,15 +1,15 @@
 const rp = require('request-promise');
 const _ = require('lodash');
 const log = require('../../log');
-const config = require('../../config');
-const emailConfig = config.sendGrid;
+const config = require('../../config').get();
+const emailConfig = () => config.sendGrid;
 
 const createRequest = emailPayload => {
   const options = {
     method: 'POST',
-    uri: emailConfig.apiPath,
+    uri: emailConfig().apiPath,
     headers: {
-      authorization: `Bearer ${emailConfig.apiKey}`,
+      authorization: `Bearer ${emailConfig().apiKey}`,
       'content-type': 'application/json'
     },
     json: true,

@@ -8,7 +8,6 @@ class Sender {
 
   async send() {
     let sendStatus = false;
-
     for (let provider of providerPreference.getProviders()) {
       try {
         await provider.provider.sendEmail(this.emailOptions);

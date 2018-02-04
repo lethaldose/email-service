@@ -1,16 +1,16 @@
 const rp = require('request-promise');
 const _ = require('lodash');
 const log = require('../../log');
-const config = require('../../config');
-const emailConfig = config.mailGun;
+const config = require('../../config').get();
+const emailConfig = () => config.mailGun;
 
 const createRequest = emailPayload => {
   const authHeader = Buffer.from(
-    `${emailConfig.username}:${emailConfig.apiKey}`
+    `${emailConfig().username}:${emailConfig().apiKey}`
   ).toString('base64');
   const options = {
     method: 'POST',
-    url: emailConfig.apiPath,
+    url: emailConfig().apiPath,
     headers: {
       authorization: `Basic ${authHeader}`,
       'content-type': 'application/x-www-form-urlencoded'
@@ -46,14 +46,15 @@ const createEmailPayload = ({ to, bcc, cc, subject, body }) => {
 
 const sendEmail = async emailOptions => {
   log.info('MailGun: Sending email for:', emailOptions);
-
+  let emailPayload;
   try {
-    const emailPayload = createEmailPayload(emailOptions);
+    emailPayload = createEmailPayload(emailOptions);
     const emailReq = createRequest(emailPayload);
     const response = await rp(emailReq);
     return response;
   } catch (err) {
     log.error('MailGun: Error sending MailGun Email', emailOptions);
+    log.error(emailPayload);
     throw err; // can wrap in custom Email error
   }
 };
