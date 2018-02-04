@@ -20,6 +20,18 @@ A simple HTTP REST api:
 - It then tries to send the email with next provider
 - The approach can be improved further to switch back to the the original preferred provider after some time to retry
 
+### Metrics
+- The api exposes some simple metrics at `GET /metrics` for number of emails sent or failed
+- e.g.
+```
+  {
+    email: {
+      sent: 5,
+      fail: 1
+    }
+  }
+```
+
 ### Routes
 
 | Path                         | Method |
@@ -44,8 +56,9 @@ A simple HTTP REST api:
 1. Clone the repo
 2. `npm i` to install node packages
 3. Run `MAIL_GUN_API_KEY=<>` `SEND_GRID_API_KEY=<>` `npm start` to start the app
-4. Run `npm test` to run specs
-5. Run `npm run lint` to run es6 linter
+4. View logs at `tail -f email-service.log`
+5. Run `npm test` to run specs
+6. Run `npm run lint` to run es6 linter
 
 
 ### Config
