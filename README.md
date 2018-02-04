@@ -32,13 +32,17 @@ A simple HTTP REST api:
 
 1. Clone the repo
 2. `npm i` to install node packages
-3. Run `npm start` to start the app
+3. Run `MAIL_GUN_API_KEY=<>` `SEND_GRID_API_KEY=<>` `npm start` to start the app
 4. Run `npm test` to run specs
 5. Run `npm run lint` to run es6 linter
+
 
 ## Config
 
 1. App config is at `src/config.js`
+2. Set Environment variables for mail provider api keys:
+    * MAIL_GUN_API_KEY
+    * SEND_GRID_API_KEY
 
 ## Sample Request
 
