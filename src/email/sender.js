@@ -1,4 +1,4 @@
-const sendGridProvider = require('./providers/send-grid');
+const providerPreference = require('./provider-preference');
 const log = require('../log');
 
 class Sender {
@@ -7,14 +7,25 @@ class Sender {
   }
 
   async send() {
-    try {
-      await sendGridProvider.sendEmail(this.emailOptions);
-      return true;
-    } catch (err) {
-      log.error(err);
-      throw err;
-      // const response = await sendGridProvider.sendEmail(this.emailOptions);
+    let sendStatus = false;
+
+    for (let provider of providerPreference.getProviders()) {
+      try {
+        await provider.provider.sendEmail(this.emailOptions);
+        sendStatus = true;
+      } catch (err) {
+        log.error(`Sending Email by Provider failed ${provider.name}`);
+        log.error(err);
+        sendStatus = false;
+        providerPreference.lower(provider.name);
+      }
+
+      if (sendStatus) {
+        break;
+      }
     }
+
+    return sendStatus;
   }
 }
 
