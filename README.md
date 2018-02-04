@@ -19,6 +19,7 @@ A simple HTTP REST api:
 | ---------------------------- | ------ |
 | /email                       | POST   |
 | /health-check                | GET    |
+| /metrics                     | GET    |
 
 ## Project Structure
 
@@ -59,3 +60,9 @@ curl -X POST \
   "body": "test email content"
 }'
 ```
+
+# Pending
+- can store email sent details in database to track and show
+- log metrics - num of emails sent by provider, num of failures by provider
+- handling more request validation scenarios for different providers
+

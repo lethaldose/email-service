@@ -46,6 +46,25 @@ paths:
                 type: boolean
                 description: email is Successfully sent or failed
                 example: false
+  /metrics:
+    get:
+      tags:
+        - metrics
+      summary: Metrics for Email sent or failed
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Metric counters for email success and failures
+          schema:
+            type: object
+            properties:
+              email:
+                type: object
+                description: Metrics for email successfully sent or failed
+                example: { sent: 2, fail: 1}
 definitions:
   email_post:
     type: object

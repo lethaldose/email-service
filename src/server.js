@@ -4,6 +4,7 @@ const config = require('./config').get();
 const errorHandler = require('./middleware/error-handler');
 const log = require('./log');
 const routes = require('./routes');
+const metrics = require('./metrics');
 
 const start = () => {
   const app = express();
@@ -15,6 +16,10 @@ const start = () => {
 
   app.get('/health-check', (req, res) => {
     res.send({ status: 'ok' });
+  });
+
+  app.get('/metrics', (req, res) => {
+    res.send(metrics.get());
   });
 
   app.use('/', routes);

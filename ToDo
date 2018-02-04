@@ -1,7 +1,4 @@
 - log metrics - num of emails sent by provider, num of failures
 - can store email content as json blob
-- swagger
-- /health-check
-- /metrics route for debugging
 - store metrics in database
 
