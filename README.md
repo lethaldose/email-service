@@ -11,7 +11,7 @@ A simple HTTP REST api:
 - npm 5
 
 ## Schema
-- Refer to [swagger](swagger.yml)
+- Refer to [swagger](swagger.yaml)
 
 ## Routes
 
