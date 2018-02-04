@@ -65,4 +65,5 @@ curl -X POST \
 - can store email sent details in database to track and show
 - log metrics - num of emails sent by provider, num of failures by provider
 - handling more request validation scenarios for different providers
+- more integration tests can be added to cover scenarios
 
