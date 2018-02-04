@@ -10,6 +10,9 @@ A simple HTTP REST api:
 - node 8
 - npm 5
 
+## Schema
+- Refer to [swagger](swagger.yml)
+
 ## Routes
 
 | Path                         | Method |

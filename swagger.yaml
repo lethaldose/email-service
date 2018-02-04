@@ -1,0 +1,76 @@
+swagger: '2.0'
+info:
+  description: >-
+    Email Service
+  version: 1.0.0
+  title: Email service
+basePath: /
+tags:
+  - name: email
+    description: 'Email request payload'
+schemes:
+  - http
+paths:
+  /email:
+    post:
+      tags:
+        - email
+      summary: Send Email
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: Email POST request body
+          required: true
+          schema:
+            $ref: '#/definitions/email_post'
+      responses:
+        '200':
+          description: Successfully sent email.
+          schema:
+            type: object
+            properties:
+              sent:
+                type: boolean
+                description: email is Successfully sent or failed
+                example: true
+        '500':
+          description: Failed to send email.
+          schema:
+            type: object
+            properties:
+              sent:
+                type: boolean
+                description: email is Successfully sent or failed
+                example: false
+definitions:
+  email_post:
+    type: object
+    required:
+    - to
+    - subject
+    - body
+    properties:
+      to:
+        type: string
+        example: ['foo@bar.com', 'baz@bar.com']
+        description: an array of email address to send email
+      bcc:
+        type: string
+        example: ['foo@bar.com', 'baz@bar.com']
+        description: an array of email address to bcc
+      cc:
+        type: string
+        example: ['foo@bar.com', 'baz@bar.com']
+        description: an array of email address to cc
+      subject:
+        type: string
+        example: Hi there!
+        description: subject of email
+      body:
+        type: string
+        example: content of the email
+        description: plain text email body
