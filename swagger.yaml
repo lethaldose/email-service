@@ -74,15 +74,21 @@ definitions:
     - body
     properties:
       to:
-        type: string
+        type: array
+        items:
+          type: string
         example: ['foo@bar.com', 'baz@bar.com']
         description: an array of email address to send email
       bcc:
-        type: string
+        type: array
+        items:
+          type: string
         example: ['foo@bar.com', 'baz@bar.com']
         description: an array of email address to bcc
       cc:
-        type: string
+        type: array
+        items:
+          type: string
         example: ['foo@bar.com', 'baz@bar.com']
         description: an array of email address to cc
       subject:
