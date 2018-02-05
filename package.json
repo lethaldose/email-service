@@ -23,6 +23,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "bunyan": "^1.8.12",
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-promise-router": "^3.0.1",
     "http-custom-errors": "^8.0.0",

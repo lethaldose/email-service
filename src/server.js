@@ -5,11 +5,20 @@ const errorHandler = require('./middleware/error-handler');
 const log = require('./log');
 const routes = require('./routes');
 const metrics = require('./metrics');
+const cors = require('cors');
 
 const start = () => {
   const app = express();
+  app.use(
+    cors({
+      origin: '*',
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      preflightContinue: false
+    })
+  );
 
   app.use(bodyParser.json({ limit: '200kb' }));
+
   app.get('/', (req, res) => {
     res.send({ EmailService: 'Hello' });
   });
